@@ -6,7 +6,7 @@
                     <h1 class="text-xs-center">Sign Up</h1>
                     <p class="text-xs-center">
                         <router-link :to="{name: 'login'}">
-                            Need an account?
+                            Have an account?
                         </router-link>
                     </p>
                     <ej-validation-errors
@@ -55,7 +55,10 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
+
 import EjValidationErrors from '@/components/ValidationErrors'
+import { actionTypes } from '@/store/modules/auth'
 
 export default {
     name: 'RegisterView',
@@ -70,18 +73,22 @@ export default {
         }
     },
     computed: {
-        isSubmitting() {
-            return this.$store.state.auth.isSubmitting
-        },
-        validationErrors() {
-            return this.$store.state.auth.validationErrors
-        },
+        ...mapState({
+            isSubmitting: state => state.auth.isSubmitting,
+            validationErrors: state => state.auth.validationErrors,
+        }),
+        // isSubmitting() {
+        //     return this.$store.state.auth.isSubmitting
+        // },
+        // validationErrors() {
+        //     return this.$store.state.auth.validationErrors
+        // },
     },
     methods: {
         onSubmit() {
             console.log('submit')
             this.$store
-                .dispatch('register', {
+                .dispatch(actionTypes.register, {
                     username: this.username,
                     email: this.email,
                     password: this.password,
