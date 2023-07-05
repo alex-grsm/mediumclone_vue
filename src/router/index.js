@@ -1,15 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '@/views/HomeView'
+
+import GlobalFeedView from '@/views/GlobalFeedView'
 import RegisterView from '@/views/RegisterView'
 import LoginView from '@/views/LoginView'
 
 
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView
-  },
   {
     path: '/register',
     name: 'register',
@@ -19,6 +15,51 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/',
+    name: 'globalFeed',
+    component: GlobalFeedView
+  },
+  {
+    path: '/feed',
+    name: 'yourFeed',
+    component: GlobalFeedView
+  },
+  {
+    path: '/tags/:slug',
+    name: 'tag',
+    component: GlobalFeedView
+  },
+  {
+    path: '/articles/new',
+    name: 'createArticle',
+    component: GlobalFeedView
+  },
+  {
+    path: '/articles/:slug',
+    name: 'article',
+    component: GlobalFeedView
+  },
+  {
+    path: '/articles/:slug/edit',
+    name: 'editArticle',
+    component: GlobalFeedView
+  },
+  {
+    path: '/settings',
+    name: 'settings',
+    component: GlobalFeedView
+  },
+  {
+    path: '/profiles/:slug',
+    name: 'userProfile',
+    component: GlobalFeedView
+  },
+  {
+    path: '/profiles/:slug/favorites',
+    name: 'userProfileFavorites',
+    component: GlobalFeedView
   },
 ]
 

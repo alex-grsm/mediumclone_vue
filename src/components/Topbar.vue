@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-light">
         <div class="container">
-            <router-link class="navbar-brand" :to="{name: 'home'}">
+            <router-link class="navbar-brand" :to="{name: 'globalFeed'}">
                 MediumClone
             </router-link>
 
@@ -9,7 +9,7 @@
                 <li class="nav-item">
                     <router-link
                         class="nav-link"
-                        :to="{name: 'home'}"
+                        :to="{name: 'globalFeed'}"
                         active-class="active"
                     >
                         Home
@@ -19,7 +19,7 @@
                     <li class="nav-item">
                         <router-link
                             class="nav-link"
-                            :to="{name: 'home'}"
+                            :to="{name: 'createArticle'}"
                             active-class="active"
                         >
                             <i class="ion-compose"></i>
@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <router-link
                             class="nav-link"
-                            :to="{name: 'home'}"
+                            :to="{name: 'settings'}"
                             active-class="active"
                         >
                             <i class="ion-gear-a"></i>
@@ -39,7 +39,10 @@
                     <li class="nav-item">
                         <router-link
                             class="nav-link"
-                            :to="{name: 'home'}"
+                            :to="{
+                                name: 'userProfile',
+                                params: {slug: currentUser.username},
+                            }"
                             active-class="active"
                         >
                             <img class="user-pic" :src="currentUser.image" />
@@ -83,10 +86,10 @@ export default {
             currentUser: getterTypes.currentUser,
             isLoggedIn: getterTypes.isLoggedIn,
             isAnonymous: getterTypes.isAnonymous,
-        })
+        }),
         // ...mapState({
-            // currentUser: state => state.auth.currentUser,
-            // isLoggedIn: state => state.auth.isLoggedIn,
+        // currentUser: state => state.auth.currentUser,
+        // isLoggedIn: state => state.auth.isLoggedIn,
         // }),
         // currentUser() {
         //     return this.$store.getters[getterTypes.currentUser]
