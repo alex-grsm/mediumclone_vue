@@ -22,7 +22,7 @@ import EjBanner from '@/components/Banner'
 import EjFeedToggler from '@/components/FeedToggler'
 
 export default {
-    name: 'EjGlobalFeed',
+    name: 'EjYourFeed',
     components: {
         EjFeed,
         EjPopularTags,
@@ -31,7 +31,7 @@ export default {
     },
     data() {
         return {
-            apiUrl: '/articles',
+            apiUrl: '/articles/feed',
         }
     },
 }

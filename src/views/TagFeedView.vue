@@ -4,7 +4,7 @@
         <div class="container page">
             <div class="row">
                 <div class="col-md-9">
-                    <ej-feed-toggler />
+                    <ej-feed-toggler :tag-name="tagName" />
                     <ej-feed :api-url="apiUrl" />
                 </div>
                 <div class="col-md-3">
@@ -22,17 +22,20 @@ import EjBanner from '@/components/Banner'
 import EjFeedToggler from '@/components/FeedToggler'
 
 export default {
-    name: 'EjGlobalFeed',
+    name: 'EjYourFeed',
     components: {
         EjFeed,
         EjPopularTags,
         EjBanner,
-        EjFeedToggler,
+        EjFeedToggler
     },
-    data() {
-        return {
-            apiUrl: '/articles',
+    computed: {
+        tagName() {
+            return this.$route.params.slug
+        },
+        apiUrl() {
+            return `/articles?tag=${this.tagName}`
         }
-    },
+    }
 }
 </script>
