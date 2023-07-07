@@ -1,6 +1,6 @@
 <template>
     <div class="home-page">
-        BANNER
+        <ej-banner />
         <div class="container page">
             <div class="row">
                 <div class="col-md-9">
@@ -17,17 +17,19 @@
 <script>
 import EjFeed from '@/components/Feed'
 import EjPopularTags from '@/components/PopularTags'
+import EjBanner from '@/components/Banner'
 
 export default {
     name: 'EjGlobalFeed',
     components: {
         EjFeed,
-        EjPopularTags
+        EjPopularTags,
+        EjBanner,
     },
     data() {
         return {
-            apiUrl: '/articles'
+            apiUrl: '/articles',
         }
-    }
+    },
 }
 </script>

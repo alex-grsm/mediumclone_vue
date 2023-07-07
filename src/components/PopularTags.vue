@@ -1,6 +1,6 @@
 <template>
-    <div v-if="isLoading">Loading...</div>
-    <div v-if="error">Something bad happened</div>
+    <ej-loading v-if="isLoading" />
+    <ej-error-message v-if="error" />
 
     <div class="sidebar" v-if="popularTags">
         <p>Popular Tags</p>
@@ -20,9 +20,15 @@
 <script>
 import {mapState} from 'vuex'
 import {actionTypes} from '@/store/modules/popularTags'
+import EjLoading from '@/components/Loading'
+import EjErrorMessage from '@/components/ErrorMessage'
 
 export default {
     name: 'EjPopularTags',
+    components: {
+        EjLoading,
+        EjErrorMessage
+    },
     computed: {
         ...mapState({
             isLoading: state => state.popularTags.isLoading,

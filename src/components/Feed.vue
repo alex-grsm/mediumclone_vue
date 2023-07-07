@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="isLoading">Loading...</div>
-        <div v-if="error">Something bad happened</div>
+        <ej-loading v-if="isLoading" />
+        <ej-error-message v-if="error" />
 
         <div v-if="feed">
             <div
@@ -68,6 +68,8 @@ import queryString from 'query-string'
 import {actionTypes} from '@/store/modules/feed'
 import EjPagination from '@/components/Pagination'
 import {limit} from '@/helpers/vars'
+import EjLoading from '@/components/Loading'
+import EjErrorMessage from '@/components/ErrorMessage'
 
 export default {
     name: 'EjFeed',
@@ -79,6 +81,8 @@ export default {
     },
     components: {
         EjPagination,
+        EjLoading,
+        EjErrorMessage,
     },
     data() {
         return {
@@ -100,7 +104,7 @@ export default {
         },
         offset() {
             return this.currentPage * limit - limit
-        }
+        },
     },
     watch: {
         currentPage() {
@@ -121,12 +125,14 @@ export default {
             const stringifiedParams = queryString.stringify({
                 limit,
                 offset: this.offset,
-                ...parsedUrl.query
+                ...parsedUrl.query,
             })
             // console.log(parsedUrl, stringifiedParams)
             const apiUrlWithParams = `${parsedUrl.url}?${stringifiedParams}`
             // console.log( apiUrlWithParams)
-            this.$store.dispatch(actionTypes.getFeed, {apiUrl: apiUrlWithParams})
+            this.$store.dispatch(actionTypes.getFeed, {
+                apiUrl: apiUrlWithParams,
+            })
         },
     },
 }
