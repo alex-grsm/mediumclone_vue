@@ -5,6 +5,7 @@ import RegisterView from '@/views/RegisterView'
 import LoginView from '@/views/LoginView'
 import YourFeedView from '@/views/YourFeedView'
 import TagFeedView from '@/views/TagFeedView'
+import ArticleView from '@/views/ArticleView'
 
 
 const routes = [
@@ -41,7 +42,7 @@ const routes = [
   {
     path: '/articles/:slug',
     name: 'article',
-    component: GlobalFeedView
+    component: ArticleView
   },
   {
     path: '/articles/:slug/edit',
