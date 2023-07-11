@@ -47,7 +47,7 @@
                     <h1>{{ article.title }}</h1>
                     <p>{{ article.description }}</p>
                     <span>Read more...</span>
-                    TAG LIST
+                    <ej-tag-list :tags="article.tagList" />
                 </router-link>
             </div>
             <ej-pagination
@@ -70,6 +70,7 @@ import EjPagination from '@/components/Pagination'
 import {limit} from '@/helpers/vars'
 import EjLoading from '@/components/Loading'
 import EjErrorMessage from '@/components/ErrorMessage'
+import EjTagList from '@/components/TagList'
 
 export default {
     name: 'EjFeed',
@@ -83,6 +84,7 @@ export default {
         EjPagination,
         EjLoading,
         EjErrorMessage,
+        EjTagList,
     },
     data() {
         return {

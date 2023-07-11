@@ -58,10 +58,7 @@
                             {{ article.body }}
                         </p>
                     </div>
-                    <ul class="tag-list">
-                        <li class="tag-default tag-pill tag-outline">data</li>
-                        <li class="tag-default tag-pill tag-outline">color</li>
-                    </ul>
+                    <ej-tag-list :tags="article.tagList" />
                 </div>
             </div>
             <hr />
@@ -77,12 +74,14 @@ import {actionTypes as articleActionTypes} from '@/store/modules/article'
 import {getterTypes as authGetterTypes} from '@/store/modules/auth'
 import {mapState, mapGetters} from 'vuex'
 import moment from 'moment'
+import EjTagList from '@/components/TagList'
 
 export default {
     name: 'EjArticle',
     components: {
         EjLoading,
         EjErrorMessage,
+        EjTagList
     },
     computed: {
         ...mapState({
