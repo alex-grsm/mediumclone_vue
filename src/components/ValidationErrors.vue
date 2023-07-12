@@ -20,6 +20,7 @@ export default {
             console.log('errors', this.validationErrors)
             return Object.keys(this.validationErrors).map(name => {
                 const messages = this.validationErrors[name].join(', ')
+                
                 return `${name} ${messages}`
             })
         },
