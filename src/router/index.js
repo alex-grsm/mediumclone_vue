@@ -7,6 +7,7 @@ import YourFeedView from '@/views/YourFeedView'
 import TagFeedView from '@/views/TagFeedView'
 import ArticleView from '@/views/ArticleView'
 import CreateArticleView from '@/views/СreateArticleView'
+import EditArticleView from '@/views/EditArticleView'
 
 
 const routes = [
@@ -48,7 +49,7 @@ const routes = [
   {
     path: '/articles/:slug/edit',
     name: 'editArticle',
-    component: GlobalFeedView
+    component: EditArticleView
   },
   {
     path: '/settings',
