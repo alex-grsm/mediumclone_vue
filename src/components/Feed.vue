@@ -33,11 +33,11 @@
                         </span>
                     </div>
                     <div class="pull-xs-right">
-                        ADD TO FAVORITES
-                        <!-- <button class="btn btn-sm btn-outline-primary">
-                            <i class="ion-heart"></i>
-                            <span> 1507 </span>
-                        </button> -->
+                        <ej-add-to-favorites
+                            :is-favorited="article.favorited"
+                            :article-slug="article.slug"
+                            :favorites-count="article.favoritesCount"
+                        />
                     </div>
                 </div>
                 <router-link
@@ -71,6 +71,7 @@ import {limit} from '@/helpers/vars'
 import EjLoading from '@/components/Loading'
 import EjErrorMessage from '@/components/ErrorMessage'
 import EjTagList from '@/components/TagList'
+import EjAddToFavorites from '@/components/AddToFavorites'
 
 export default {
     name: 'EjFeed',
@@ -85,6 +86,7 @@ export default {
         EjLoading,
         EjErrorMessage,
         EjTagList,
+        EjAddToFavorites
     },
     data() {
         return {
