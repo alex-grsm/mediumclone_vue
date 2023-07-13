@@ -8,6 +8,7 @@ import TagFeedView from '@/views/TagFeedView'
 import ArticleView from '@/views/ArticleView'
 import CreateArticleView from '@/views/СreateArticleView'
 import EditArticleView from '@/views/EditArticleView'
+import SettingsView from '@/views/SettingsView'
 
 
 const routes = [
@@ -54,7 +55,7 @@ const routes = [
   {
     path: '/settings',
     name: 'settings',
-    component: GlobalFeedView
+    component: SettingsView
   },
   {
     path: '/profiles/:slug',
