@@ -9,6 +9,7 @@ import ArticleView from '@/views/ArticleView'
 import CreateArticleView from '@/views/СreateArticleView'
 import EditArticleView from '@/views/EditArticleView'
 import SettingsView from '@/views/SettingsView'
+import UserProfileView from '@/views/UserProfileView'
 
 
 const routes = [
@@ -60,12 +61,12 @@ const routes = [
   {
     path: '/profiles/:slug',
     name: 'userProfile',
-    component: GlobalFeedView
+    component: UserProfileView
   },
   {
     path: '/profiles/:slug/favorites',
     name: 'userProfileFavorites',
-    component: GlobalFeedView
+    component: UserProfileView
   },
 ]
 
