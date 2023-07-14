@@ -26,6 +26,14 @@
                             {{ formatDate(article.createdAt) }}
                         </span>
                     </div>
+                    <span v-if="!isAuthor">
+                        <ej-add-to-favorites
+                            :is-favorited="article.favorited"
+                            :article-slug="article.slug"
+                            :favorites-count="article.favoritesCount"
+                            :simple-btn="false"
+                        />
+                    </span>
                     <span v-if="isAuthor">
                         <router-link
                             class="btn btn-outline-secondary btn-sm"
@@ -62,7 +70,6 @@
                 </div>
             </div>
             <hr />
-
         </div>
     </div>
 </template>
@@ -75,13 +82,15 @@ import {getterTypes as authGetterTypes} from '@/store/modules/auth'
 import {mapState, mapGetters} from 'vuex'
 import moment from 'moment'
 import EjTagList from '@/components/TagList'
+import EjAddToFavorites from '@/components/AddToFavorites'
 
 export default {
     name: 'EjArticle',
     components: {
         EjLoading,
         EjErrorMessage,
-        EjTagList
+        EjTagList,
+        EjAddToFavorites
     },
     computed: {
         ...mapState({
