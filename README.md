@@ -1,5 +1,7 @@
 # Medium Clone Vue.js
 
+![image](https://github.com/alex-grsm/mediumclone_vue/assets/17318047/1c96c770-5452-4771-bbe7-943c7973b6a0)
+
 ## Project setup
 ```
 npm install
